@@ -19,7 +19,7 @@ module SessionsHelper
 	end
 
 	def verifyAdmin
-		unless currentUser && currentlyAdmin
+		unless currentUser && currentUser.admin?
 			flash[:notice] = "You must be an admin to access that."
 			redirect_to root_path
 		end
