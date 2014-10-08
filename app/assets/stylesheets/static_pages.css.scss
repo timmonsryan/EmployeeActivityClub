@@ -1,3 +1,21 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Home */
+
+#homePage {
+	margin-top: 10%;
+}
+
+#homePage h2, h4 {
+	text-align: center;
+	margin: 20px 0;
+}
+
+#homePage h2 {
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 4em;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}

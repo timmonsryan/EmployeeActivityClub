@@ -1,10 +1,16 @@
 <div id="headerWrapper">
 	<div id="headerZone">
-		<h1>EAC</h1>
+		<h1><%= link_to "EAC", root_path %></h1>
 		<div id="navLinks">
-			<%= link_to 'About', '#' %>
+			<% if signedIn? %>
+				<%= link_to 'Sign Out', signout_path %>
+			<% else %>
+				<%= link_to 'Sign In', signin_path %>
+			<% end %>
 			<%= link_to ' | ', '#' %>
-			<%= link_to 'Profile', '#' %>
+			<%= link_to 'News', '#' %>
+			<%= link_to ' | ', '#' %>
+			<%= link_to 'Events', 'events#index' %>
 		</div>
 	</div>
 </div>

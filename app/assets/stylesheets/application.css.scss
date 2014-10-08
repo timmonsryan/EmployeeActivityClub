@@ -14,8 +14,9 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* Header */
 
 #headerWrapper {
 	background-color: #e74c3c;
@@ -27,14 +28,25 @@
 	h1 {
 		display: inline-block;
 		color: white;
-		padding: 0;
+		padding: 5px 0;
 		margin: 0;
-		width: 40%;
+		width: 60%;
+		font-family: 'Lobster', cursive;
+		&:link {
+			color: white;
+			text-decoration: none;
+		}
+		&:hover {
+			text-decoration: none;
+		}
+		a {
+			color: white;
+		}
 	}
 }
 
 #content, #headerZone {
-	width: 80%;
+	width: 60%;
 	max-width: 640px;
 	margin: 0 auto;
 	padding: 0;
@@ -43,13 +55,38 @@
 #navLinks {
 	display: inline-block;
 	float: right;
-	width: 60%;
+	width: 40%;
 	padding: 0;
 	margin: 0;
 	a {
-		margin-top: 10px;
+		margin-top: 15px;
 		color: white;
 		float: right;
 		margin-left: 5px;
 	}
 }
+
+#content {
+	text-align: center;
+}
+
+/* Flash Messages */
+
+.flash {
+	margin-top: 10px;
+}
+
+.flash_success {
+	color: green;
+}
+
+.flash_error {
+	color: red;
+}
+
+.flash_notice {
+	color: blue;
+}
+
+
+
