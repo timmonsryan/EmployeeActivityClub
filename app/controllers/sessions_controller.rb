@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 			redirect_to root_path
 		else
 			flash.now[:error] = "Invalid Signin"
-			render signin_path
+			render new_session_path
 		end
 	end
 

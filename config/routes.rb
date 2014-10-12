@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
   resources :users
   get '/signup', to: 'users#new'
   get '/home', to: 'static_pages#home'
   root 'static_pages#home'
-  resources :events
+  resources :events do
+    resources :appointments
+  end
   get '/signin', to: 'sessions#new'
   get '/signout', to: 'sessions#destroy'
   resources :sessions, only: [:new, :create]

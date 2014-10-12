@@ -3,5 +3,5 @@
 	<h2>Employee Activity Club</h2>
 	<h4>Page</h4>
 
-	<%= link_to "Sign Up", signup_path %>
+	<%= button_to "Sign Up", signup_path, method: :get unless signedIn? %>
 </div>

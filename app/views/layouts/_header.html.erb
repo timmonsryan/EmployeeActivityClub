@@ -2,11 +2,8 @@
 	<div id="headerZone">
 		<h1><%= link_to "EAC", root_path %></h1>
 		<div id="navLinks">
-			<% if signedIn? %>
-				<%= link_to 'Sign Out', signout_path %>
-			<% else %>
-				<%= link_to 'Sign In', signin_path %>
-			<% end %>
+			<%= link_to 'Sign Out', signout_path if signedIn? %>
+			<%= link_to 'Sign In', signin_path if !signedIn? %>
 			<%= link_to ' | ', '#' %>
 			<%= link_to 'News', '#' %>
 			<%= link_to ' | ', '#' %>
