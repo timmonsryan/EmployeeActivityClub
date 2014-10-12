@@ -85,6 +85,9 @@
 
 .headerLink {
 	color: white;
+	&:hover {
+		color: white;
+	}
 }
 
 #dropdown li a {
@@ -93,6 +96,7 @@
 
 #content {
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 /* Flash Messages */
