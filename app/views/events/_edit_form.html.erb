@@ -1,21 +1,24 @@
 <%= form_for @event do |f| %>
-	<%= f.label :name, "Event Name" %><br/>
-	<%= f.text_field :name %><br/>
+	<%= f.label :name, "Event Name" %><br>
+	<%= f.text_field :name %><br><br>
 
-	<%= f.label :date, "Date" %><br/>
-	<%= f.date_field :date %><br/>
+	<%= f.label :date, "Date" %><br>
+	<%= f.date_field :date %><br><br>
 
-	<%= f.label :description %><br/>
-	<%= f.text_area :description, rows: 3 %><br/>
+	<%= f.label :description %><br>
+	<%= f.text_area :description, rows: 3 %><br><br>
 
-	<%= f.label :location %><br/>
-	<%= f.text_field :location %><br/>
+	<%= f.label :location %><br>
+	<%= f.text_field :location %><br><br>
 
-	<%= f.label :picture, "Picture Link" %><br/>
-	<%= f.text_field :picture %><br/>
+	<%= f.label :picture, "Picture Link" %><br>
+	<%= f.text_field :picture %><br><br>
 
 	<%= f.label :guestCost, "Cost per Paid Guest" %><br>
 	<%= f.text_field :guestCost %><br><br>
+
+	<%= f.label :giveaway, "Giveaway?" %>
+	<%= f.check_box :giveaway %><br><br>
 
 	<%= f.label :locked, "Locked?" %>
 	<%= f.check_box :locked %><br><br>
