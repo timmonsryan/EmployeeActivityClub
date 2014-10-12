@@ -4,7 +4,7 @@
 		<div id="navLinks">
 			<% if signedIn? %>
 				<div class="dropdown pull-right">
-					<a class="dropdown-toggle headerLink" data-toggle="dropdown" href="#"><%= currentUser.firstName %><b class="caret"></b></a>
+					<a class="dropdown-toggle headerLink" data-toggle="dropdown" href="#"><%= currentUser.firstName %> <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 						<li>
 							<%= link_to "View Profile", "#", class: "dropdownItem" %>

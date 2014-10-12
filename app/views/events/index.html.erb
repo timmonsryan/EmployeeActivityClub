@@ -1,4 +1,4 @@
-<h1>EAC Events</h1>
+<% provide(:heading, "EAC Events") %>
 <% @event_years.sort.each do |year, events| %>
 	<h4><%= -year %></h4>
 	<% events.each do |e| %>

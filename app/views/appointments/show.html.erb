@@ -1,5 +1,5 @@
-<h1>Registration Details</h1><br>
-<p><strong>Event:</strong> <%= @event.name %></p><br>
-<p><strong>Free Guest?:</strong> <%= human_boolean(@appointment.freeGuest?) %></p><br>
+<% provide(:heading, "Registration Details") %><br>
+<p><strong>Event:</strong> <%= @event.name %></p>
+<p><strong>Free Guest?:</strong> <%= human_boolean(@appointment.freeGuest?) %></p>
 <p><strong>Number of Paid Guests:</strong> <%= @appointment.paidGuests %></p><br>
 <%= button_to "Edit Registration Details", edit_event_appointment_path(@event.id, @appointment.id), method: :get %>

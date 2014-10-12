@@ -1,4 +1,4 @@
-<h1>Attending <%= @event.name %></h1>
+<% provide(:heading, "Attending #{@event.name}") %>
 <%= form_for @appointment, url: event_appointment_path(@event.id, @appointment.id), method: :patch, action: :update do |f| %>
 	<%= f.label :freeGuest, "Bringing a Free Guest?" %>
 	<%= f.check_box :freeGuest %><br><br>

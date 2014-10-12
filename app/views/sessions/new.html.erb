@@ -1,4 +1,4 @@
-<h1>Sign In</h1>
+<% provide(:heading, "Sign In") %>
 <%= form_tag sessions_path do %>
 	<%= label_tag :tellerNumber, "Teller Number" %><br>
 	<%= text_field_tag :tellerNumber %><br><br>

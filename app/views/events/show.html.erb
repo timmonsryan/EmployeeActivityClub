@@ -1,4 +1,4 @@
-<h1><%= @event.name %></h1>
+<% provide(:heading, @event.name) %>
 <% if @event.picture %>
 	<%= image_tag @event.picture, id: "EventPicture" %>
 <% end %><br/><br/>
@@ -9,21 +9,27 @@
 
 <%= @event.description %><br/><br/>
 
-<% if alreadyRegistered?(@event) %>
-	<p id="RegistrationNotice">You are registered for this event! <%= link_to "(View Details)", event_appointment_path(@event.id, Appointment.find_by(user_id: currentUser.id, event_id: @event.id)) %></p>
-<% elsif signedIn? %>
-	<%= button_to "Register", new_event_appointment_path(@event), method: :get, class: "btn btn-primary" %><br/>
+<% unless @event.giveaway? %>
+	<% if alreadyRegistered?(@event) %>
+		<p id="RegistrationNotice">You are registered for this event! <%= link_to "(View Details)", event_appointment_path(@event.id, Appointment.find_by(user_id: currentUser.id, event_id: @event.id)) %></p>
+	<% elsif signedIn? %>
+		<%= button_to "Register", new_event_appointment_path(@event), method: :get, class: "btn btn-primary" %><br/>
+	<% end %>
 <% end %>
+
+<%= link_to "Back to Events", events_path %><br>
 
 <% if currentUser && currentUser.admin? %>
 	<%= link_to "Edit Event", edit_event_path(@event) %><br/>
 	<%= link_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 
-<% if @event.users && @event.users.count > 0 %>
-	<h2>Guest List</h2>
-	<% @event.appointments.each do |a| %>
-		<%= "#{a.user.firstName} #{a.user.lastName}" %><%= " (#{pluralize(a.guestTotal, 'Guest')})" if a.guestTotal > 0 %><br>
+<% unless @event.giveaway? %>
+	<% if @event.users && @event.users.count > 0 %>
+		<h2>Guest List</h2>
+		<% @event.appointments.each do |a| %>
+			<%= "#{a.user.firstName} #{a.user.lastName}" %><%= " (#{pluralize(a.guestTotal, 'Guest')})" if a.guestTotal > 0 %><br>
+		<% end %>
 	<% end %>
 <% end %>
 

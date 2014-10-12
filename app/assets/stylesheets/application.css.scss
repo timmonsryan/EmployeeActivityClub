@@ -49,8 +49,11 @@
 #content, #headerZone {
 	width: 60%;
 	max-width: 640px;
-	margin: 0 auto;
 	padding: 0;
+}
+
+#headerZone {
+	margin: 0 auto;
 }
 
 #navLinks {
@@ -96,7 +99,11 @@
 
 #content {
 	text-align: center;
-	margin-bottom: 20px;
+	margin: 0 auto 50px;
+}
+
+h1 {
+	text-decoration: underline;
 }
 
 /* Flash Messages */
@@ -117,5 +124,9 @@
 	color: blue;
 }
 
+/* Footer */
+
+#footer {
+}
 
 
