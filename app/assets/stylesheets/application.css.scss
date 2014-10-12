@@ -106,6 +106,14 @@ h1 {
 	text-decoration: underline;
 }
 
+.field_with_errors {
+	margin: 0;
+	padding: 0;
+	input {
+		border-color: red;
+	}
+}
+
 /* Flash Messages */
 
 .flash {
