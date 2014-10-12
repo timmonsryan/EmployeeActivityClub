@@ -1,0 +1,11 @@
+<h1>EAC Events</h1>
+<% @event_years.sort.each do |year, events| %>
+	<h4><%= -year %></h4>
+	<% events.each do |e| %>
+		<%= link_to "#{e.date.strftime("%B")} - #{e.name}", event_path(e) %><br>
+	<% end %>
+<% end %>
+<% if currentlyAdmin? %>
+	<br><br>
+	<%= button_to "Add Event", new_event_path, method: :get %>
+<% end %><br>

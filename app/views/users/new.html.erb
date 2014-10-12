@@ -1,0 +1,23 @@
+<h1>Sign Up</h1>
+<%= form_for @user do |f| %>
+
+	<%= f.label :tellerNumber, "Teller Number" %></br>
+	<%= f.text_field :tellerNumber %></br>
+
+	<%= f.label :firstName, "First Name" %></br>
+	<%= f.text_field :firstName %></br>
+
+	<%= f.label :lastName, "Last Name" %></br>
+	<%= f.text_field :lastName %></br>
+
+	<%= f.label :department %></br>
+	<%= f.text_field :department %></br>
+
+	<%= f.label :password %></br>
+	<%= f.password_field :password %></br>
+
+	<%= f.label :password_confirmation, "Password Confirmation" %></br>
+	<%= f.password_field :password_confirmation %></br></br>
+
+	<%= f.submit "Create Account" %>
+<% end %>

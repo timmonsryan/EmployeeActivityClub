@@ -1,0 +1,10 @@
+<h1>Sign In</h1>
+<%= form_tag sessions_path do %>
+	<%= label_tag :tellerNumber, "Teller Number" %><br>
+	<%= text_field_tag :tellerNumber %><br>
+
+	<%= label_tag :password %><br>
+	<%= password_field_tag :password %><br><br>
+
+	<%= submit_tag "Sign In" %>
+<% end %>
