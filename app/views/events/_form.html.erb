@@ -12,7 +12,13 @@
 	<%= f.text_field :location %><br/>
 
 	<%= f.label :picture, "Picture Link" %><br/>
-	<%= f.text_field :picture %><br/><br/>
+	<%= f.text_field :picture %><br/>
+
+	<%= f.label :guestCost, "Cost per Paid Guest" %><br>
+	<%= f.text_field :guestCost %><br>
+
+	<%= f.label :locked, "Locked?" %>
+	<%= f.check_box :locked %><br><br>
 
 	<%= f.submit "Create Event" %>
 <% end %>
