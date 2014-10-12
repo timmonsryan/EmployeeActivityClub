@@ -1,7 +1,7 @@
 <h1>Attending <%= @event.name %></h1>
 <%= form_for @appointment, url: event_appointments_path(@event), method: :post, action: :create do |f| %>
 	<%= f.label :freeGuest, "Bringing a Free Guest?" %>
-	<%= f.check_box :freeGuest %><br>
+	<%= f.check_box :freeGuest %><br><br>
 
 	<%= f.label :paidGuests, "Number of Paid Guests" %>
 	<%= f.select :paidGuests, ((0..10).map {|i| [i,i] }) %><br><br>

@@ -3,9 +3,9 @@
 	<%= image_tag @event.picture, id: "EventPicture" %>
 <% end %><br/><br/>
 
-<%= @event.date.to_formatted_s(:long_ordinal) %><br/><br/>
+<strong>Date: </strong><%= @event.date.to_formatted_s(:long_ordinal) %><br/><br/>
 
-<%= @event.location %><br/><br/>
+<strong>Location: </strong><%= @event.location %><br/><br/>
 
 <%= @event.description %><br/><br/>
 
