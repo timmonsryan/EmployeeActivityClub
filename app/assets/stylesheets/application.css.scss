@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
 @import "bootstrap-sprockets";
@@ -31,7 +31,7 @@
 		color: white;
 		padding: 5px 0;
 		margin: 0;
-		width: 60%;
+		width: 30%;
 		font-family: 'Lobster', cursive;
 		&:link {
 			color: white;
@@ -56,15 +56,39 @@
 #navLinks {
 	display: inline-block;
 	float: right;
-	width: 40%;
+	width: 70%;
 	padding: 0;
 	margin: 0;
-	a {
+	.headerLink, #dropdown {
 		margin-top: 15px;
-		color: white;
 		float: right;
 		margin-left: 5px;
 	}
+}
+
+.dropdown-menu {
+	width: 25px;
+	li {
+		width: 100%;
+		height: auto;
+		padding-right: 5px;
+	}
+}
+
+.dropdownItem {
+	padding: 0;
+	margin: 0;
+	float: right;
+	width: 100%;
+	text-align: right;
+}
+
+.headerLink {
+	color: white;
+}
+
+#dropdown li a {
+	color: black;
 }
 
 #content {

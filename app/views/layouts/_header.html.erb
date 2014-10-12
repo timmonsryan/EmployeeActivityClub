@@ -2,12 +2,25 @@
 	<div id="headerZone">
 		<h1><%= link_to "EAC", root_path %></h1>
 		<div id="navLinks">
-			<%= link_to 'Sign Out', signout_path if signedIn? %>
-			<%= link_to 'Sign In', signin_path if !signedIn? %>
-			<%= link_to ' | ', '#' %>
-			<%= link_to 'News', news_path %>
-			<%= link_to ' | ', '#' %>
-			<%= link_to 'Events', events_path %>
+			<% if signedIn? %>
+				<div class="dropdown pull-right">
+					<a class="dropdown-toggle headerLink" data-toggle="dropdown" href="#"><%= currentUser.firstName %><b class="caret"></b></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<li>
+							<%= link_to "View Profile", "#", class: "dropdownItem" %>
+						</li>
+						<li class="pull-right">
+							<%= link_to 'Sign Out', signout_path, class: "dropdownItem" %>
+							
+						</li>
+					</ul>
+				</div>
+			<% end %>
+			<%= link_to 'Sign In', signin_path, class: "headerLink" if !signedIn? %>
+			<%= link_to ' | ', '#', class: "headerLink" %>
+			<%= link_to 'News', news_path, class: "headerLink" %>
+			<%= link_to ' | ', '#', class: "headerLink" %>
+			<%= link_to 'Events', events_path, class: "headerLink" %>
 		</div>
 	</div>
 </div>

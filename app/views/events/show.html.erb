@@ -12,7 +12,7 @@
 <% if alreadyRegistered?(@event) %>
 	<p id="RegistrationNotice">You are registered for this event! <%= link_to "(View Details)", event_appointment_path(@event.id, Appointment.find_by(user_id: currentUser.id, event_id: @event.id)) %></p>
 <% elsif signedIn? %>
-	<%= button_to "Register", new_event_appointment_path(@event), method: :get %><br/>
+	<%= button_to "Register", new_event_appointment_path(@event), method: :get, class: "btn btn-primary" %><br/>
 <% end %>
 
 <% if currentUser && currentUser.admin? %>
