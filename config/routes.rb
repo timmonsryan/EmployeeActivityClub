@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   get '/signup', to: 'users#new'
   get '/home', to: 'static_pages#home'
+  get '/news', to: 'static_pages#news'
   root 'static_pages#home'
   resources :events do
     resources :appointments
