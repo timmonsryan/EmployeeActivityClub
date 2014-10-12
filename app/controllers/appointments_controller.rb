@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  before_action :checkEventStatus, except: [:show]
+
   def new
   	@event = Event.find(params[:event_id])
   	@appointment = @event.appointments.new
@@ -48,4 +50,12 @@ class AppointmentsController < ApplicationController
   	def appointment_params
   		params.require(:appointment).permit(:paidGuests, :freeGuest, :event_id, :user_id)
   	end
+
+    def checkEventStatus
+      currentEvent = Event.find(params[:event_id])
+      if currentEvent.locked?
+        flash[:notice] = "Registration for this event has closed."
+        redirect_to currentEvent
+      end
+    end
 end
