@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'posts/index'
+
+  get 'posts/new'
+
+  get 'posts/create'
+
+  get 'posts/edit'
+
+  get 'posts/update'
+
+  get 'posts/destroy'
+
   resources :users
   get '/signup', to: 'users#new'
   get '/home', to: 'static_pages#home'

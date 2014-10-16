@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :verifyAdmin, only: [:destroy]
   def index
   end
 

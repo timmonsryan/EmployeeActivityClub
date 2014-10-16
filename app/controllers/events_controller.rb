@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :verifyAdmin, only: [:new, :create, :edit, :update, :destroy]
+  
   def index
     @events = Event.all.order(date: :desc)
     @event_years = @events.group_by { |e| -e.date.year }
