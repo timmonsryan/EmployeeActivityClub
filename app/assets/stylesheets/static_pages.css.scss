@@ -5,12 +5,12 @@
 /* Home */
 
 #homePage {
-	margin-top: 10%;
+	padding-top: 10%;
 }
 
 #homePage h2, h4 {
 	text-align: center;
-	margin: 20px 0;
+	padding: 20px 0;
 }
 
 #homePage h2 {
@@ -18,4 +18,8 @@
 	font-size: 4em;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
+}
+
+#homePage h4 {
+	font-size: 24px;
 }
