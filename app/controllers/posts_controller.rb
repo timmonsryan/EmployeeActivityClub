@@ -8,7 +8,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    if @post = Post.create(post_params)
+      redirect_to posts_path
+    else
+      flash.now[:error] = "Invalid Post"
+      render 'new'
+    end
   end
 
   def edit
@@ -17,16 +22,22 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update_attributes(post_params)
+    if @post.update_attributes(post_params)
+      redirect_to posts_path
+    else
+      flash.now[:error] = "Invalid Post"
+      render 'edit'
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    redirect_to posts_path
   end
 
   private
     def post_params
-      params.require(:post).permit(:title, :subject, :user_id)
+      params.require(:post).permit(:title, :body).merge(user_id: currentUser.id)
     end
 end

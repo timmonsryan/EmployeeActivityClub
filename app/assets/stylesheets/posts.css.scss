@@ -1,3 +1,32 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#postBodyField {
+	width: 100%;
+}
+
+.postTitle {
+	font-size: 24px;
+	float: left;
+	font-weight: bold;
+	a {
+		font-size: 12px;
+	}
+}
+
+.postName {
+	clear: both;
+	float:left;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	font-size: 10px;
+}
+
+.postBody {
+	clear: both;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}

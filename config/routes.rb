@@ -1,21 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'posts/index'
-
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'posts/edit'
-
-  get 'posts/update'
-
-  get 'posts/destroy'
-
+  resources :posts
   resources :users
   get '/signup', to: 'users#new'
   get '/home', to: 'static_pages#home'
-  get '/news', to: 'static_pages#news'
+  get '/news', to: 'posts#index'
   root 'static_pages#home'
   resources :events do
     resources :appointments
