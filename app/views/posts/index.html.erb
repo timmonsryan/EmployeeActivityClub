@@ -1,8 +1,14 @@
-<h1>EAC News</h1>
+<% provide(:heading, "EAC News") %>
 <% @posts.each do |p| %>
-	<div class="postTitle"><%= p.title %><%= link_to " (Delete)", post_path(p), method: :delete, data: { confirm: "Are you sure?" } if currentlyAdmin? %></div><br>
+	<div class="postTitle"><%= p.title %></div><br>
 	<div class="postName"> By <%= p.user.firstName %> (<%= p.created_at.to_date.strftime("%m-%d-%Y") %>)</div><br>
-	<div class="postBody"><%= p.body %></div><br>
+	<div class="postBody"><%= p.body %><br>
+		<% if currentlyAdmin? %>
+			<%= link_to "Delete", post_path(p), method: :delete, data: { confirm: "Are you sure?" } %> | <%= link_to "Edit", edit_post_path(p) %>
+		<% end %>
+	</div>
+	<br>
 <% end %>
 
-<%= link_to "Add Post", new_post_path if currentlyAdmin? %>
+<br>
+<%= button_to "Add Post", new_post_path, method: :get if currentlyAdmin? %>
