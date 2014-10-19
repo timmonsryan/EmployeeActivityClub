@@ -7,13 +7,8 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @user = currentUser
   	@event = Event.find(params[:event_id])
-  	@appointment = Appointment.new
-    @appointment.event_id = @event.id
-    @appointment.user_id = @user.id
-    @appointment.update_attributes(appointment_params)
-    if @appointment.save
+    if Appointment.create(appointment_params)
   	 flash[:success] = "You have signed up for this event."
   	 redirect_to event_path(@event)
     else
@@ -34,9 +29,13 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
-    @appointment.update_attributes(appointment_params)
-    flash[:success] = "Registration has been updated."
-    redirect_to @appointment.event
+    if @appointment.update_attributes(appointment_params)
+      flash[:success] = "Registration has been updated."
+      redirect_to @appointment.event
+    else
+      flash[:error] = "Invalid Registration"
+      redirect_to edit_appointment_path(@appointment)
+    end
   end
 
   def destroy
@@ -48,7 +47,7 @@ class AppointmentsController < ApplicationController
 
   private
   	def appointment_params
-  		params.require(:appointment).permit(:paidGuests, :freeGuest, :event_id, :user_id)
+  		params.require(:appointment).permit(:paidGuests, :freeGuest).merge(event_id: params[:event_id], user_id: currentUser.id)
   	end
 
     def checkEventStatus
