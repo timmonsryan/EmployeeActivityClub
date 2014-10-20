@@ -7,7 +7,7 @@
 					<a class="dropdown-toggle headerLink" data-toggle="dropdown" href="#"><%= currentUser.firstName %> <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 						<li>
-							<%= link_to "View Profile", "#", class: "dropdownItem" %>
+							<%= link_to "View Profile", user_path(currentUser), class: "dropdownItem" %>
 						</li>
 						<li class="pull-right">
 							<%= link_to 'Sign Out', signout_path, class: "dropdownItem" %>

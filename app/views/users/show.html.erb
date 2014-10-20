@@ -1,0 +1,25 @@
+<% provide(:heading, "#{@user.firstName}'s Profile") %>
+<div id="ProfileInfo">
+	<div id="ProfileDetails">
+		<h4>Details</h4>
+		<ul>
+			<li><b>Name: </b><%= "#{@user.firstName} #{@user.lastName}" %></li>
+			<li><b>Teller Number:</b> <%= "#{@user.tellerNumber}" %></li>
+			<li><b>Department: </b><%= "#{@user.department}" %></li>
+	</div>
+	<div id="ProfileEvents">
+		<h4>My Events</h4>
+		<ul>
+			<% @user.events.order(date: :desc).each do |e| %>
+				<li><%= link_to e.name, e %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="ProfileEventNotification" >
+	Don't forget about our next event!<br>
+	<%= link_to nextEvent.name, nextEvent %><br>
+	<p id="NextEventMessage" >
+		<%= eventSuggestion(nextEvent) %>
+	</p>
+</div>

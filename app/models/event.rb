@@ -4,4 +4,6 @@ class Event < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :description, presence: true
+
+	scope :upcoming, lambda { where('DATE(date) > ?', Date.today).order(date: :asc) } 
 end
