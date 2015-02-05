@@ -16,10 +16,12 @@
 		</ul>
 	</div>
 </div>
-<div id="ProfileEventNotification" >
-	Don't forget about our next event!<br>
-	<%= link_to nextEvent.name, nextEvent %><br>
-	<p id="NextEventMessage" >
-		<%= eventSuggestion(nextEvent) %>
-	</p>
-</div>
+<% if nextEvent %>
+	<div id="ProfileEventNotification" >
+		Don't forget about our next event!<br>
+		<%= link_to nextEvent.name, nextEvent %><br>
+		<p id="NextEventMessage" >
+			<%= eventSuggestion(nextEvent) %>
+		</p>
+	</div>
+<% end %>
